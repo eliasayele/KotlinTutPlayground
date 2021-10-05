@@ -44,13 +44,38 @@ fun main(args: Array<String>) {
 
 
     /// "when" loop that replace long if else block
-    var age = readLine()?.toInt()
-    when (age){
-     in 0..5 -> println("You are yunger kid")
-     in 6..17 -> println("you are a tinager")
-     19,20 -> println("Your young adult ")
-        in 21..65 -> println("you are adult")
-        else -> println("You are really old")
-    }
+//    var age = readLine()?.toInt()
+//    when (age){
+//     in 0..5 -> println("You are yunger kid")
+//     in 6..17 -> println("you are a tinager")
+//     19,20 -> println("Your young adult ")
+//        in 21..65 -> println("you are adult")
+//        else -> println("You are really old")
+//    }
 
+//var list  = mutableListOf<Int>()
+//    println("please enter 5 numbers")
+//    for (i in 1..5){
+//        val x = readLine()?.toInt()
+//        if (x != null){
+//            list.add(x)
+//        }
+//    }
+//    println("the 5 numbers in reverse order is: ")
+//    for (i in list.size - 1 downTo 0){
+//        println(list[i])
+//    }
+
+    ///working with Fibonacci series
+
+var list  = mutableListOf(0,1)
+    println("Enter a numbern >1")
+    var n = readLine()?.toLong()
+    if (n !=null){
+        for (i in 2 until n){
+            list.add(list[(i-2).toInt()] + list[(i-1).toInt()])
+        }
+
+    }
+    println(list)
 }
