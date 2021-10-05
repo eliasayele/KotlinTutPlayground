@@ -68,14 +68,35 @@ fun main(args: Array<String>) {
 
     ///working with Fibonacci series
 
-var list  = mutableListOf(0,1)
-    println("Enter a numbern >1")
-    var n = readLine()?.toLong()
-    if (n !=null){
-        for (i in 2 until n){
-            list.add(list[(i-2).toInt()] + list[(i-1).toInt()])
-        }
-
+//var list  = mutableListOf(0,1)
+//    println("Enter a numbern >1")
+//    var n = readLine()?.toLong()
+//    if (n !=null){
+//        for (i in 2 until n){
+//            list.add(list[(i-2).toInt()] + list[(i-1).toInt()])
+//        }
+//
+//    }
+//    println(list)
+println("Enter your country")
+    var country = readLine()
+    when (country){
+        "Eth" -> println("Salam")
+        "India" -> println("namaste")
+        "usa" -> println("Hello")
+        else -> println("I don't know that")
     }
-    println(list)
+
+///Working with FUNCTIONS IN KOTLIN
+//println(printPow(3,6))
+//
+}
+
+//calculates base power of exponet
+fun printPow(base:Int,exponent:Int): Int {
+    var result = 1
+    for( i in 1 until  exponent){
+        result *= base
+    }
+    return result
 }
