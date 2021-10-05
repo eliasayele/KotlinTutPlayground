@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-  //  println("Hello World!")
+    //  println("Hello World!")
     ///declaring array
 //  var myarr = arrayOf("hello","getter","world")
 //    println(myarr[0])
@@ -78,25 +78,96 @@ fun main(args: Array<String>) {
 //
 //    }
 //    println(list)
-println("Enter your country")
-    var country = readLine()
-    when (country){
-        "Eth" -> println("Salam")
-        "India" -> println("namaste")
-        "usa" -> println("Hello")
-        else -> println("I don't know that")
-    }
+//println("Enter your country")
+//    var country = readLine()
+//    when (country){
+//        "Eth" -> println("Salam")
+//        "India" -> println("namaste")
+//        "usa" -> println("Hello")
+//        else -> println("I don't know that")
+//    }
 
 ///Working with FUNCTIONS IN KOTLIN
 //println(printPow(3,6))
 //
+//    println(multiply(3,5))
+//
+//    //print first item of the list in fun
+//    var items = listOf<Int>(1,2,4)
+//    printListItem(items)
+
+    ///vararg usage
+//    val max = getMax(1,4,6,8,2,9,0,34,5,6,78,54,3,33)
+//    println("The maximum value is $max")
+
+    ///usage in named parameter of functions
+//searchFor("How to become kotlin programmer","Bing")
+//    searchFor(search = "how to pass values to func" ,searchEngine = "duckDuckgo")
+//    searchFor(searchEngine = "Bing", search = "how to become programmer")
+
+    ///Extension to a function for Int
+//println("please insert a number")
+//   var input =  readLine()?.toInt()?.toInt()
+//    if (input != null){
+//        if (input.isPrime()){
+//            println("$input is prime")
+//        }
+//        else {
+//            println("$input is not prime")
+//        }
+//    }
+
+
+    ///extension to List<Int>
+    var list  = listOf<Int>(9,5,3,6,7)
+    println("the porduct off this list is")
+    println(list.productOf())
 }
+/* outside of main function*/
+
+///extenstion function to Int
+fun Int.isPrime():Boolean{
+  for (i in 2 until this -1){
+      if (this % 1 ==0){
+          return false
+      }
+  }
+    return  true
+}
+///extension to List
+fun List<Int>.productOf():Int{
+    var result = 1
+    for (i in this){
+        result *= i
+    }
+    return  result
+}
+///default value for parameters
+//fun searchFor(search:String,searchEngine:String="Google"){
+//    println("Searching for $search  on $searchEngine")
+//}
+///vararg in fun parameter, we can treat numbers like array
+//fun getMax(vararg numbers:Int):Int{
+//   var max = numbers[0]
+//    for (number in numbers){
+//        if (number > max){
+//            max = number
+//        }
+//    }
+//    return  max
+//}
 
 //calculates base power of exponet
-fun printPow(base:Int,exponent:Int): Int {
-    var result = 1
-    for( i in 1 until  exponent){
-        result *= base
-    }
-    return result
-}
+//fun printPow(base:Int,exponent:Int): Int {
+//    var result = 1
+//    for( i in 1 until  exponent){
+//        result *= base
+//    }
+//    return result
+//}
+//
+////another function declaration
+//fun multiply(a:Int,b:Int) = a * b
+
+//pass list for func parameter
+//fun printListItem(list:List<Int>) = println(list[0])
