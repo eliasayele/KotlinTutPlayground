@@ -119,33 +119,72 @@ fun main(args: Array<String>) {
 
 
     ///extension to List<Int>
-    var list  = listOf<Int>(9,5,3,6,7)
-    println("the porduct off this list is")
-    println(list.productOf())
+//    var list  = listOf<Int>(9,5,3,6,7)
+//    println("the product off this list is")
+//    println(list.productOf())
+
+    ///classes and objects
+//    var rec = Rectangle(10,40)
+//    println("the area of the rectangle is ${rec.area()}")
+//    println("the perimeter of the  rectangle is ${rec.perimeter()} ")
+//    println("Is the square is rectangle ? ${rec.isSquare()}")
+//   rec.changeName("Circle")
+//    print("the area of ${rec.name} is ${rec.area()}")
+//    //print(rec)
+
+
+    ///use other constructors
+//    var rec = Rectangle(5.0)
+//    println(rec.perimeter())
+
+    ///user function overloading
+//    var rec1 = Rectangle(5.0)
+//    var rec2 = Rectangle(7.0,9.0)
+//    var maxArea = maxArea(rec1,rec2)
+//    println("the maximum area of the rectangle and the circle is $maxArea")
 }
+
+///take a look this function overloading in maxArea
+fun maxArea(shape1:Shape,shape2:Shape):Double{
+    val areaShape1 = shape1.area()
+    val areaShape2  = shape2.area()
+ return    if (areaShape1 > areaShape2)  areaShape1 else areaShape2
+}
+fun maxArea(shape1:Shape,shape2:Shape,shape3:Shape):Double{
+    val maxAreaShape1Shape2 = maxArea(shape1,shape2)
+    val areaShape3  = shape3.area()
+    return    if (maxAreaShape1Shape2 > areaShape3)  maxAreaShape1Shape2 else areaShape3
+}
+
 /* outside of main function*/
 
-///extenstion function to Int
-fun Int.isPrime():Boolean{
-  for (i in 2 until this -1){
-      if (this % 1 ==0){
-          return false
-      }
-  }
-    return  true
-}
+///extension function to Int
+//fun Int.isPrime():Boolean{
+//  for (i in 2 until this -1){
+//      if (this % 1 ==0){
+//          return false
+//      }
+//  }
+//    return  true
+//}
+
+
 ///extension to List
-fun List<Int>.productOf():Int{
-    var result = 1
-    for (i in this){
-        result *= i
-    }
-    return  result
-}
+//fun List<Int>.productOf():Int{
+//    var result = 1
+//    for (i in this){
+//        result *= i
+//    }
+//    return  result
+//}
+
+
 ///default value for parameters
 //fun searchFor(search:String,searchEngine:String="Google"){
 //    println("Searching for $search  on $searchEngine")
 //}
+
+
 ///vararg in fun parameter, we can treat numbers like array
 //fun getMax(vararg numbers:Int):Int{
 //   var max = numbers[0]
@@ -157,7 +196,7 @@ fun List<Int>.productOf():Int{
 //    return  max
 //}
 
-//calculates base power of exponet
+//calculates base power of exponent
 //fun printPow(base:Int,exponent:Int): Int {
 //    var result = 1
 //    for( i in 1 until  exponent){
