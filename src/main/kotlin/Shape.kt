@@ -1,6 +1,8 @@
 abstract class Shape(
     var name:String
 ) {
+    constructor(name: String,vararg  dimension:Double): this(name)
+
     init {
         println("I am supper class!")
     }

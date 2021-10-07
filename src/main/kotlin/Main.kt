@@ -142,8 +142,74 @@ fun main(args: Array<String>) {
 //    var rec2 = Rectangle(7.0,9.0)
 //    var maxArea = maxArea(rec1,rec2)
 //    println("the maximum area of the rectangle and the circle is $maxArea")
-}
 
+    ///printalternet function called
+//    var list = listOf<Int>(1,3,4,5,6)
+//    var array = arrayOf<Int>(7,8,9,10,11)
+//    println("print list")
+//    printAlternet(list)
+//    println("print array")
+//    printAlternet(array)
+
+    ///use companion object , which does not need to create instance of the class, we can call directly
+  //  val rec   = Rectangle.reandomRectangle()
+
+    ///creating anonymous class from shape
+    ///we use this to create a class on the fly
+    var a  = 3.0
+    var b = 4.0
+    var height   = 2.0
+    var parallelogram  = object : Shape("Parallelogram",a,b,height){
+        init {
+            println("parallelogram created with a =$a , b = $b and height = $height")
+            println("the area is ${area()}")
+            println("the perimeter is ${perimeter()}")
+        }
+        override fun area(): Double {
+            return  a * height
+        }
+       override fun perimeter(): Double {
+            return 2 * a + 2* b
+        }
+
+    }
+}
+//print alternet array or list
+fun printAlternet(list: List<Int>){
+    var listSize = list.size - 1
+    var front = 0
+    var togle = false
+
+    while (front <= listSize) {
+        if (togle){
+            println(list[listSize])
+            listSize --
+
+        } else {
+            println(list[front])
+            front ++
+
+        }
+        togle = !togle
+    }
+}
+fun printAlternet(array: Array<Int>){
+    var arraySize = array.size - 1
+    var front = 0
+    var togle = false
+
+    while (front <= arraySize) {
+        if (togle){
+            println(array[arraySize])
+            arraySize --
+
+        } else {
+            println(array[front])
+            front ++
+        }
+        togle = !togle
+    }
+}
 ///take a look this function overloading in maxArea
 fun maxArea(shape1:Shape,shape2:Shape):Double{
     val areaShape1 = shape1.area()
@@ -156,27 +222,28 @@ fun maxArea(shape1:Shape,shape2:Shape,shape3:Shape):Double{
     return    if (maxAreaShape1Shape2 > areaShape3)  maxAreaShape1Shape2 else areaShape3
 }
 
+
 /* outside of main function*/
 
 ///extension function to Int
-//fun Int.isPrime():Boolean{
-//  for (i in 2 until this -1){
-//      if (this % 1 ==0){
-//          return false
-//      }
-//  }
-//    return  true
-//}
+fun Int.isPrime():Boolean{
+  for (i in 2 until this -1){
+      if (this % 1 ==0){
+          return false
+      }
+  }
+    return  true
+}
 
 
 ///extension to List
-//fun List<Int>.productOf():Int{
-//    var result = 1
-//    for (i in this){
-//        result *= i
-//    }
-//    return  result
-//}
+fun List<Int>.productOf():Int{
+    var result = 1
+    for (i in this){
+        result *= i
+    }
+    return  result
+}
 
 
 ///default value for parameters
