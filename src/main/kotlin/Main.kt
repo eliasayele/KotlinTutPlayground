@@ -156,23 +156,97 @@ fun main(args: Array<String>) {
 
     ///creating anonymous class from shape
     ///we use this to create a class on the fly
-    var a  = 3.0
-    var b = 4.0
-    var height   = 2.0
-    var parallelogram  = object : Shape("Parallelogram",a,b,height){
-        init {
-            println("parallelogram created with a =$a , b = $b and height = $height")
-            println("the area is ${area()}")
-            println("the perimeter is ${perimeter()}")
-        }
-        override fun area(): Double {
-            return  a * height
-        }
-       override fun perimeter(): Double {
-            return 2 * a + 2* b
-        }
+//    var a  = 3.0
+//    var b = 4.0
+//    var height   = 2.0
+//    var parallelogram  = object : Shape("Parallelogram",a,b,height){
+//        init {
+//            println("parallelogram created with a =$a , b = $b and height = $height")
+//            println("the area is ${area()}")
+//            println("the perimeter is ${perimeter()}")
+//        }
+//        override fun area(): Double {
+//            return  a * height
+//        }
+//       override fun perimeter(): Double {
+//            return 2 * a + 2* b
+//        }
+//
+//    }
 
+    ///EXCEPTIONS
+//    var value  = try {
+//        readLine()?.toInt()
+//    } catch (e :NumberFormatException){
+//        0
+//    }
+//    finally {
+//        println("this is finally block")
+//    }
+//
+//    print("you enter number $value")
+
+    //use our own exception
+//    try {
+//        divide(5.0,0.0)
+//    }catch (e:DivisionByZeroException){
+//        println(e.message)
+//    }
+
+    ///lambda function
+//    var list = (0..20).toList()
+//    println(list)
+//     list  = list.filter { it % 2 == 0 }
+//    println(list)
+    //custom lambda function
+    val rec1 = Rectangle(5.0)
+    val  rec2 = Rectangle(4.0,6.0)
+    val rec3  = Rectangle(60.0,3.0)
+    val rec4  = Rectangle(20.0,12.0)
+
+    var shapes =  listOf<Shape>(rec1,rec2,rec3,rec4)
+    shapes.customFilter { it.area() > 20.0 }.sortedBy { it.area() }
+
+    for(shape in shapes){
+        println("${shape.name}: Area = ${shape.area()}")
     }
+//    var list =  (0..10).toList()
+//   var sum =  list.customSum { it % 2 == 1 }
+//    println("The sum is : $sum")
+
+
+
+}
+
+//filter list of any type  and filter based on logic given
+fun <T> List<T>.customFilter(filterFunction:(T) -> (Boolean)) :List<T>{
+    var resultList =   mutableListOf<T>()
+    for (item in this){
+        if (filterFunction(item)){
+            resultList.add(item)
+        }
+    }
+    return  resultList
+}
+
+///this func take list of int and filter based on given logic and then add the filter ones together
+fun List<Int>.customSum(filterOdd: (Int) -> Boolean ) : Int{
+    var sum  = 0
+    for (item in this){
+        if (filterOdd(item)) {
+            sum += item
+        }
+    }
+   return  sum
+}
+//exception class and the func divide
+class  DivisionByZeroException:Exception("You can not divide by zero, please choose another number")
+//func the use the class
+fun divide(a:Double,b:Double) : Double{
+    if( b== 0.0){
+        throw DivisionByZeroException()
+    }
+    return a / b;
 }
 //print alternet array or list
 fun printAlternet(list: List<Int>){
